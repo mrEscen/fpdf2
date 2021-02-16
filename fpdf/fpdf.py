@@ -217,8 +217,6 @@ class FPDF:
         else:
             raise FPDFException(f"Incorrect unit: {unit}")
 
-        self.font_size = self.font_size_pt / self.k  # current font size
-
         # Page format
         self.dw_pt, self.dh_pt = get_page_format(format, self.k)
 
@@ -823,7 +821,7 @@ class FPDF:
 
         if family in self.font_aliases and family + style not in self.fonts:
             warnings.warn(
-                f"Substitutting font {family} by core font "
+                f"Substituting font {family} by core font "
                 f"{self.font_aliases[family]}"
             )
             family = self.font_aliases[family]
